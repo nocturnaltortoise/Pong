@@ -1,11 +1,5 @@
 Pong
 ====
 
-Java clone of Pong
-
-
-Known Bugs:
-
- - Sound cuts out after sustained play - console error suggests that the 24bit audio file is the problem.
- - Occasional frame stutter on first sound being played due to it loading the sound. Possible fix would involve loading sounds earlier?
+This is a really simple Java clone of Pong, which I made as a project to apply stuff I'd learnt about Java Graphics programming. This is one of many attempts (hence the folder name PongMK5000) , as I was mostly just stumbling around not knowing what I was doing. Feedback is great if you have any. Bear in mind that the code is if anything overly commented, mostly for my own purposes. 
  
