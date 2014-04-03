@@ -62,8 +62,11 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	Rectangle ball = new Rectangle(BALL_START_X, BALL_START_Y, BALL_DIAMETER,
 			BALL_DIAMETER);
 
-	Rectangle paddle1 = new Rectangle(PADDLE1_START_X, PADDLE_START_Y, PADDLE_WIDTH, PADDLE_HEIGHT);
-	Rectangle paddle2 = new Rectangle(PADDLE2_START_X, PADDLE_START_Y, PADDLE_WIDTH, PADDLE_HEIGHT);
+	Rectangle paddle1 = new Rectangle(PADDLE1_START_X, PADDLE_START_Y, 
+	        PADDLE_WIDTH, PADDLE_HEIGHT);
+	
+	Rectangle paddle2 = new Rectangle(PADDLE2_START_X, PADDLE_START_Y, 
+	        PADDLE_WIDTH, PADDLE_HEIGHT);
 
 	Rectangle screen = new Rectangle(0, 0, WIDTH, HEIGHT);
 
@@ -119,7 +122,9 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 		Clip clip = AudioSystem.getClip();
 		try {
 
-			AudioInputStream ais = AudioSystem.getAudioInputStream(this.getClass().getResource("beep-07.wav"));
+			AudioInputStream ais = AudioSystem.getAudioInputStream(this.
+			        getClass().getResource("beep-07.wav"));
+			
 			clip.open(ais);
 
 		} catch (Exception e) {
@@ -298,7 +303,8 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 		g2d.fill(paddle2);
 		g2d.fill(ball);
 
-		Stroke drawingStroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 9 }, 0);
+		Stroke drawingStroke = new BasicStroke(3, BasicStroke.CAP_BUTT, 
+		        BasicStroke.JOIN_BEVEL, 0, new float[] { 9 }, 0);
 		Line2D line = new Line2D.Double(WIDTH / 2, 0, (WIDTH / 2) + 3, HEIGHT);
 
 		g2d.setStroke(drawingStroke);
@@ -322,7 +328,8 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 			FontMetrics fm = g2d.getFontMetrics();
 
 			g2d.setColor(Color.white);
-			g2d.drawString(message, (WIDTH - fm.stringWidth(message)) / 2, HEIGHT + fm.getAscent() / (2 - fm.getDescent()));
+			g2d.drawString(message, (WIDTH - fm.stringWidth(message)) / 2, 
+			        HEIGHT + fm.getAscent() / (2 - fm.getDescent()));
 		}
 
 	}

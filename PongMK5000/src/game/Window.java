@@ -57,12 +57,14 @@ public class Window extends JFrame implements ActionListener {
 		this.add(picture);
 
 		// making the menu buttons
-		playButton.setBounds((windowWidth / 2) - 50, (windowHeight / 2) - 30, 100, 30);
+		playButton.setBounds((windowWidth / 2) - 50, 
+		        (windowHeight / 2) - 30, 100, 30);
 		playButton.setText("Play");
 		playButton.setFocusable(false);
 		panel.add(playButton);
 
-		exitButton.setBounds((windowWidth / 2) - 35, (windowHeight / 2) + 10, 70, 30);
+		exitButton.setBounds((windowWidth / 2) - 35, 
+		        (windowHeight / 2) + 10, 70, 30);
 		exitButton.setText("Exit");
 		exitButton.setFocusable(false);
 		panel.add(exitButton);
