@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 
 //test comment to check that committing is working from this device
 
+=======
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 package game;
 
 import java.awt.BasicStroke;
@@ -66,10 +69,16 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 			BALL_DIAMETER);
 
 	Rectangle paddle1 = new Rectangle(PADDLE1_START_X, PADDLE_START_Y, 
+<<<<<<< HEAD
 	        PADDLE_WIDTH, PADDLE_HEIGHT);
 	
 	Rectangle paddle2 = new Rectangle(PADDLE2_START_X, PADDLE_START_Y, 
 	        PADDLE_WIDTH, PADDLE_HEIGHT);
+=======
+	PADDLE_WIDTH, PADDLE_HEIGHT);
+	Rectangle paddle2 = new Rectangle(PADDLE2_START_X, PADDLE_START_Y, 
+	PADDLE_WIDTH, PADDLE_HEIGHT);
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 
 	Rectangle screen = new Rectangle(0, 0, WIDTH, HEIGHT);
 
@@ -90,6 +99,10 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	 * so that the actionlistener will allow for key input to be added to the
 	 * keys array.
 	 */
+<<<<<<< HEAD
+=======
+	
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	public Game() {
 
 		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -105,7 +118,11 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		this.timer.start();
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	}
 
 	/*
@@ -120,13 +137,21 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	 * thrown, so that the method can be called elsewhere to allow for properly
 	 * encapsulated use of the audio file.
 	 */
+<<<<<<< HEAD
+=======
+	
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	private Clip audio() throws Exception {
 
 		Clip clip = AudioSystem.getClip();
 		try {
 
 			AudioInputStream ais = AudioSystem.getAudioInputStream(this.
+<<<<<<< HEAD
 			        getClass().getResource("beep-07.wav"));
+=======
+			getClass().getResource("beep-07.wav"));
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 			
 			clip.open(ais);
 
@@ -144,6 +169,10 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	 * direction for the ball to travel in, by modifying the velocity of the
 	 * ball.
 	 */
+<<<<<<< HEAD
+=======
+	
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	private void reset() {
 
 		ball.x = BALL_START_X;
@@ -187,6 +216,10 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	 * ball in their original positions. The game state is changed to game ended
 	 * so the game pauses and displays the score.
 	 */
+<<<<<<< HEAD
+=======
+	
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	private void update() throws Exception {
 
 		if (gameState != GAME_PLAYING) {
@@ -307,7 +340,12 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 		g2d.fill(ball);
 
 		Stroke drawingStroke = new BasicStroke(3, BasicStroke.CAP_BUTT, 
+<<<<<<< HEAD
 		        BasicStroke.JOIN_BEVEL, 0, new float[] { 9 }, 0);
+=======
+		BasicStroke.JOIN_BEVEL, 0, new float[] { 9 }, 0);
+		
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 		Line2D line = new Line2D.Double(WIDTH / 2, 0, (WIDTH / 2) + 3, HEIGHT);
 
 		g2d.setStroke(drawingStroke);
@@ -331,8 +369,13 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 			FontMetrics fm = g2d.getFontMetrics();
 
 			g2d.setColor(Color.white);
+<<<<<<< HEAD
 			g2d.drawString(message, (WIDTH - fm.stringWidth(message)) / 2, 
 			        HEIGHT + fm.getAscent() / (2 - fm.getDescent()));
+=======
+			g2d.drawString(message, (WIDTH - fm.stringWidth(message)) / 2,
+			HEIGHT + fm.getAscent() / (2 - fm.getDescent()));
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 		}
 
 	}
@@ -343,6 +386,10 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	 * repaint, updating the graphics. In practice this runs on the delay set by
 	 * the timer, and ensures smooth graphics without screen flashing.
 	 */
+<<<<<<< HEAD
+=======
+	
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	public void actionPerformed(ActionEvent event) {
 
 		if (event.getSource() == timer) {
@@ -356,8 +403,14 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 
 	}
 
+<<<<<<< HEAD
 	// checks for keypresses, adds keypresses to array of keys. Pauses on space
 	// key press.
+=======
+	/* checks for keypresses, adds keypresses to array of keys. Pauses on space
+	 key press. */
+	
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	public void keyPressed(KeyEvent e) {
 
 		keys[e.getKeyCode()] = true;
@@ -374,16 +427,28 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 
 	}
 
+<<<<<<< HEAD
 	// stops adding keys to array when key is released, preventing paddle from
 	// keeping moving when key is not held down.
+=======
+	/* stops adding keys to array when key is released, preventing paddle from
+	 keeping moving when key is not held down. */
+	
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	public void keyReleased(KeyEvent e) {
 
 		keys[e.getKeyCode()] = false;
 
 	}
 
+<<<<<<< HEAD
 	// keytyped is just here because KeyListener is an interface, and so all
 	// it's methods need to be implemented.
+=======
+	/* keytyped is just here because KeyListener is an interface, and so all
+	 it's methods need to be implemented. */
+	
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	public void keyTyped(KeyEvent e) {
 	}
 

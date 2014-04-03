@@ -22,17 +22,31 @@ public class Window extends JFrame implements ActionListener {
 	/* 640 x 480 dimensions picked because they're large enough to play a
 	 reasonable game, small enough to look retro.
  	Plus, large dimensions don't benefit primitive graphics. */
+<<<<<<< HEAD
 	private int windowWidth = 640;
 	private int windowHeight = 480;
 
 	//main method for the whole program - makes a new instance of the Window class. 
+=======
+	
+	private int windowWidth = 640;
+	private int windowHeight = 480;
+
+	//main method for the whole program - makes a new instance of the 
+	//Window class. 
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	public static void main(String[] args) {
 
 		new Window();
 
 	}
 
+<<<<<<< HEAD
 	//constructor for the window class, ran when a new instance of Window is created.
+=======
+	//constructor for the window class, ran when a new instance of Window is 
+	//created.
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	public Window() {
 
 		// creating basic window of the right size, setting title etc
@@ -57,20 +71,37 @@ public class Window extends JFrame implements ActionListener {
 		this.add(picture);
 
 		// making the menu buttons
+<<<<<<< HEAD
 		playButton.setBounds((windowWidth / 2) - 50, 
 		        (windowHeight / 2) - 30, 100, 30);
+=======
+		playButton.setBounds((windowWidth / 2) - 50, (windowHeight / 2) - 30,
+		100, 30);
+		
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 		playButton.setText("Play");
 		playButton.setFocusable(false);
 		panel.add(playButton);
 
+<<<<<<< HEAD
 		exitButton.setBounds((windowWidth / 2) - 35, 
 		        (windowHeight / 2) + 10, 70, 30);
+=======
+		exitButton.setBounds((windowWidth / 2) - 35, (windowHeight / 2) + 10, 
+		70, 30);
+		
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 		exitButton.setText("Exit");
 		exitButton.setFocusable(false);
 		panel.add(exitButton);
 		
 		this.setVisible(true);
+<<<<<<< HEAD
 
+=======
+		
+		//adding listeners for button clicks
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 		playButton.addActionListener(this);
 		exitButton.addActionListener(this);
 
@@ -78,6 +109,10 @@ public class Window extends JFrame implements ActionListener {
 
 	/* Method from the ActionListener interface, checks for user clicking on the play or quit buttons, gets rid of the menu frame
 	 * on play button click and then makes a new Game instance. */
+<<<<<<< HEAD
+=======
+	
+>>>>>>> ba42715f60f6672b2184f34607d05b07ae2ab1f5
 	public void actionPerformed(ActionEvent e) {
 
 		// if the play button is clicked, start a new game, get rid of the menu
