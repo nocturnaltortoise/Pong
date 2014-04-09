@@ -26,12 +26,6 @@ public class Window extends JFrame implements ActionListener {
 	private int windowWidth = 640;
 	private int windowHeight = 480;
 
-	//main method for the whole program - makes a new instance of the Window class. 
-
-	
-	private int windowWidth = 640;
-	private int windowHeight = 480;
-
 	//main method for the whole program - makes a new instance of the 
 	//Window class. 
 
