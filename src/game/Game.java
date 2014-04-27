@@ -13,11 +13,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.Line2D;
+import java.io.File;
+import java.io.IOException;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -59,20 +61,11 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	private int p2score = 0;
 
 	// rectangle objects for the paddles, the game background and the "ball"
-	Rectangle ball = new Rectangle(BALL_START_X, BALL_START_Y, BALL_DIAMETER,
-			BALL_DIAMETER);
+	Rectangle ball = new Rectangle(BALL_START_X, BALL_START_Y, BALL_DIAMETER, BALL_DIAMETER);
 
-	Rectangle paddle1 = new Rectangle(PADDLE1_START_X, PADDLE_START_Y, 
-
-	        PADDLE_WIDTH, PADDLE_HEIGHT);
+	Rectangle paddle1 = new Rectangle(PADDLE1_START_X, PADDLE_START_Y,PADDLE_WIDTH, PADDLE_HEIGHT);
 	
-	Rectangle paddle2 = new Rectangle(PADDLE2_START_X, PADDLE_START_Y, 
-	        PADDLE_WIDTH, PADDLE_HEIGHT);
-
-	PADDLE_WIDTH, PADDLE_HEIGHT);
-	Rectangle paddle2 = new Rectangle(PADDLE2_START_X, PADDLE_START_Y, 
-	PADDLE_WIDTH, PADDLE_HEIGHT);
-
+	Rectangle paddle2 = new Rectangle(PADDLE2_START_X, PADDLE_START_Y, PADDLE_WIDTH, PADDLE_HEIGHT);
 
 	Rectangle screen = new Rectangle(0, 0, WIDTH, HEIGHT);
 
@@ -129,23 +122,23 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	private Clip audio() throws Exception {
 
 		Clip clip = AudioSystem.getClip();
-		try {
-
-			AudioInputStream ais = AudioSystem.getAudioInputStream(this.
-
-			        getClass().getResource("beep-07.wav"));
-
-			getClass().getResource("beep-07.wav"));
-
-			
-			clip.open(ais);
-
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-		}
+		clip.open(loadAudio());
 
 		return clip;
 
+	}
+	
+	private AudioInputStream loadAudio(){
+		
+		AudioInputStream ais;
+		try {
+			ais = AudioSystem.getAudioInputStream(this.getClass().getResource("/res/beep.wav"));
+		} catch (UnsupportedAudioFileException | IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return ais;
 	}
 
 	/*
@@ -318,13 +311,8 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 		g2d.fill(paddle2);
 		g2d.fill(ball);
 
-		Stroke drawingStroke = new BasicStroke(3, BasicStroke.CAP_BUTT, 
-
-		        BasicStroke.JOIN_BEVEL, 0, new float[] { 9 }, 0);
-
-		BasicStroke.JOIN_BEVEL, 0, new float[] { 9 }, 0);
+		Stroke drawingStroke = new BasicStroke(3, BasicStroke.CAP_BUTT,BasicStroke.JOIN_BEVEL, 0, new float[] { 9 }, 0);
 		
-
 		Line2D line = new Line2D.Double(WIDTH / 2, 0, (WIDTH / 2) + 3, HEIGHT);
 
 		g2d.setStroke(drawingStroke);
@@ -380,9 +368,6 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	}
 
 
-	// checks for keypresses, adds keypresses to array of keys. Pauses on space
-	// key press.
-
 	/* checks for keypresses, adds keypresses to array of keys. Pauses on space
 	 key press. */
 	
@@ -404,9 +389,6 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	}
 
 
-	// stops adding keys to array when key is released, preventing paddle from
-	// keeping moving when key is not held down.
-
 	/* stops adding keys to array when key is released, preventing paddle from
 	 keeping moving when key is not held down. */
 	
@@ -417,10 +399,6 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 
 	}
 
-
-	// keytyped is just here because KeyListener is an interface, and so all
-	// it's methods need to be implemented.
-
 	/* keytyped is just here because KeyListener is an interface, and so all
 	 it's methods need to be implemented. */
 
@@ -428,5 +406,3 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 	}
 
 }
-
-

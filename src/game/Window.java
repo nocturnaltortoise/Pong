@@ -1,8 +1,12 @@
 package game;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -54,43 +58,31 @@ public class Window extends JFrame implements ActionListener {
 		panel.setSize(windowWidth, windowHeight);
 		getContentPane().add(panel);
 
+		//this.getClass().getResource("Pongmenu.jpg")
 		// adding background image for the menu
 		ImageIcon icon;
 		JLabel picture;
-		icon = new ImageIcon(this.getClass().getResource("Pongmenu.jpg"));
+		icon = new ImageIcon(this.getClass().getResource("/res/Pongmenu.jpg"));
 		picture = new JLabel(new ImageIcon(icon.getImage()));
 		this.add(picture);
 
 		// making the menu buttons
 
-		playButton.setBounds((windowWidth / 2) - 50, 
-		        (windowHeight / 2) - 30, 100, 30);
-
-		playButton.setBounds((windowWidth / 2) - 50, (windowHeight / 2) - 30,
-		100, 30);
-		
+		playButton.setBounds((windowWidth / 2) - 50, (windowHeight / 2) - 30, 100, 30);
 
 		playButton.setText("Play");
 		playButton.setFocusable(false);
 		panel.add(playButton);
 
-
-		exitButton.setBounds((windowWidth / 2) - 35, 
-		        (windowHeight / 2) + 10, 70, 30);
-
-		exitButton.setBounds((windowWidth / 2) - 35, (windowHeight / 2) + 10, 
-		70, 30);
-		
+		exitButton.setBounds((windowWidth / 2) - 35,(windowHeight / 2) + 10, 70, 30);
 
 		exitButton.setText("Exit");
 		exitButton.setFocusable(false);
 		panel.add(exitButton);
 		
 		this.setVisible(true);
-
 		
 		//adding listeners for button clicks
-
 		playButton.addActionListener(this);
 		exitButton.addActionListener(this);
 
@@ -98,7 +90,7 @@ public class Window extends JFrame implements ActionListener {
 
 	/* Method from the ActionListener interface, checks for user clicking on the play or quit buttons, gets rid of the menu frame
 	 * on play button click and then makes a new Game instance. */
-
+	
 	public void actionPerformed(ActionEvent e) {
 
 		// if the play button is clicked, start a new game, get rid of the menu
